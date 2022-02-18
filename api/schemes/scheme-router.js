@@ -149,3 +149,10 @@ router.use((err, req, res, next) => { // eslint-disable-line
 })
 
 module.exports = router
+
+//SCHEMES IN ASC ORDER WITH STEPS IN ASC ORDER
+
+// select s.scheme_id, scheme_name, instructions, step_number
+// from steps as st
+// left join schemes as s on s.scheme_id = st.scheme_id
+// order by s.scheme_id, step_number asc
