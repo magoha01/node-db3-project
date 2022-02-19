@@ -190,14 +190,13 @@ async function add(scheme) {
 }
 
 function addStep(scheme_id, step) {
-  return db("steps as st")
+  return db("steps")
     .insert({ ...step, scheme_id })
     .then(() => {
       return db("steps")
         //.select('step_id', 'step_number', 'instructions')
-        //.orderBy("step_number")
         .where("scheme_id", scheme_id)
-
+        .orderBy("step_number")
     });
 
   // EXERCISE E
